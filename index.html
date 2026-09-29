@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>家庭点菜助手</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- 侧边导航（桌面）/ 底部 tab（移动） -->
+    <nav class="tabbar" id="tabbar">
+      <div class="brand"><span class="brand-ico">🍽️</span> <span id="brandName">家庭点菜助手</span></div>
+      <button class="tab" data-action="switch-tab" data-tab="order"><span class="tab-ico">🍽️</span><span class="tab-txt">点菜</span></button>
+      <button class="tab" data-action="switch-tab" data-tab="cook"><span class="tab-ico">🍳</span><span class="tab-txt">做饭</span></button>
+      <button class="tab" data-action="switch-tab" data-tab="recipe"><span class="tab-ico">📖</span><span class="tab-txt">菜谱</span></button>
+      <button class="tab" data-action="switch-tab" data-tab="profile"><span class="tab-ico">👤</span><span class="tab-txt">我的</span></button>
+    </nav>
+
+    <!-- 主内容区：顶部标题 + 页面容器 -->
+    <div id="main">
+      <header class="app-header">
+        <span class="app-title" id="appTitle">点菜</span>
+      </header>
+      <main class="screen" id="screen"></main>
+    </div>
+
+    <!-- 底部弹层（下单抽屉 / 菜谱详情 / 成员表单等） -->
+    <div class="sheet-mask" id="sheetMask" hidden>
+      <div class="sheet" id="sheet"></div>
+    </div>
+
+    <!-- toast -->
+    <div class="toast" id="toast" hidden></div>
+
+    <!-- 自定义确认弹窗（替代原生 confirm，兼容预览面板/webview） -->
+    <div class="modal-mask" id="confirmMask" hidden>
+      <div class="modal" id="confirmModal">
+        <div class="modal-msg" id="confirmMsg"></div>
+        <div class="modal-actions">
+          <button class="btn btn-ghost" id="confirmCancel">取消</button>
+          <button class="btn btn-danger" id="confirmOk">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/util.js"></script>
+  <script src="js/constants.js"></script>
+  <script src="js/merge.js"></script>
+  <script src="js/csv.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
